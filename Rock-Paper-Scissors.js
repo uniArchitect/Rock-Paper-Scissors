@@ -5,7 +5,7 @@ function playerSelection() {
     let selection = prompt("Rock, Paper or Scissors?");
     str = selection;
     let capFirstLetter = str[0].toUpperCase();
-    let restOfString = str.slice(1);
+    let restOfString = str.slice(1).toLowerCase();
     let capSelection = (capFirstLetter + restOfString);
     return capSelection; 
 }
