@@ -8,30 +8,53 @@ function playerSelection() {
 
 //computerPlay - Computer's random moves
 function computerPlay(possOutcomes) {
-    return possOutcomes[Math.floor(Math.random() * possOutcomes.length)];
+    outcome = possOutcomes[Math.floor(Math.random() * possOutcomes.length)];
+    return outcome;
 }
 
 //Single Round Game
 function oneRound() {
-    playerSelection();
-    computerPlay(possOutcomes);
-    
+
     //Capture Play Variables
     playerMove = playerSelection();
     computerMove = computerPlay(possOutcomes);
     
-    if (playerMove === 'Rock') {
-        if (computerMove === 'rock');
+    //Choose 'Rock'
+    if (playerMove === 'Rock' && computerMove === 'rock') {
         return "Tie";
     }
 
-    if (playerMove === 'Rock') {
-        if (computerMove === 'paper');
+    if (playerMove === 'Rock' && computerMove === 'paper') {
         return "You lost...";
     }
 
-    if (playerMove === 'Rock') {
-        if (computerMove === 'scissors');
+    if (playerMove === 'Rock' && computerMove === 'scissors') {
         return "You win!";
+    }
+
+    //Choose 'Paper'
+    if (playerMove === 'Paper' && computerMove === 'rock') {
+        return "You win!";
+    }
+
+    if (playerMove === 'Paper' && computerMove === 'paper') {
+        return "Tie";
+    }
+
+    if (playerMove === 'Paper' && computerMove === 'scissors') {
+        return "You lost...";
+    }
+
+    //Choose 'Scissors'
+    if (playerMove === 'Scissors' && computerMove === 'rock') {
+        return "You lost...";
+    }
+
+    if (playerMove === 'Scissors' && computerMove === 'paper') {
+        return "You win!";
+    }
+
+    if (playerMove === 'Scissors' && computerMove === 'scissors') {
+        return "Tie";
     }
 }
