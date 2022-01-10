@@ -3,7 +3,11 @@ let possOutcomes = ['rock', 'paper', 'scissors'];
 //playerSelection - User will input their move here
 function playerSelection() {
     let selection = prompt("Rock, Paper or Scissors?");
-    return selection; 
+    str = selection;
+    let capFirstLetter = str[0].toUpperCase();
+    let restOfString = str.slice(1);
+    let capSelection = (capFirstLetter + restOfString);
+    return capSelection; 
 }
 
 //computerPlay - Computer's random moves
