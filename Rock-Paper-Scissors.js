@@ -11,17 +11,17 @@ function playerSelection() {
 }
 
 //computerPlay - Computer's random moves
-function computerPlay(possOutcomes) {
+function computerPlay() {
     outcome = possOutcomes[Math.floor(Math.random() * possOutcomes.length)];
     return outcome;
 }
 
-//Captured player variables
-let playerMove = playerSelection();
-let computerMove = computerPlay(possOutcomes);
-
 //Single Round Game
-function oneRound(playerMove, computerMove) {
+function oneRound() {
+
+    //Captured player variables
+    playerMove = playerSelection();
+    computerMove = computerPlay(possOutcomes);
 
     //Choose 'Rock'
     if (playerMove === 'Rock' && computerMove === 'rock') {
@@ -65,7 +65,5 @@ function oneRound(playerMove, computerMove) {
 
 //Game function - Play to best of 5
 function game() {
-
-    oneRound(playerMove, computerMove);
-
+    return oneRound();
 }
