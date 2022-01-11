@@ -1,11 +1,11 @@
+//Global Scope
 let possOutcomes = ['rock', 'paper', 'scissors'];
 
 //playerSelection - User will input their move here
 function playerSelection() {
     let selection = prompt("Rock, Paper or Scissors?");
-    str = selection;
-    let capFirstLetter = str[0].toUpperCase();
-    let restOfString = str.slice(1).toLowerCase();
+    let capFirstLetter = selection[0].toUpperCase();
+    let restOfString = selection.slice(1).toLowerCase();
     let capSelection = (capFirstLetter + restOfString);
     return capSelection; 
 }
@@ -16,13 +16,13 @@ function computerPlay(possOutcomes) {
     return outcome;
 }
 
-//Single Round Game
-function oneRound() {
+//Captured player variables
+let playerMove = playerSelection();
+let computerMove = computerPlay(possOutcomes);
 
-    //Capture Play Variables
-    playerMove = playerSelection();
-    computerMove = computerPlay(possOutcomes);
-    
+//Single Round Game
+function oneRound(playerMove, computerMove) {
+
     //Choose 'Rock'
     if (playerMove === 'Rock' && computerMove === 'rock') {
         return "Tie";
@@ -61,4 +61,11 @@ function oneRound() {
     if (playerMove === 'Scissors' && computerMove === 'scissors') {
         return "Tie";
     }
+}
+
+//Game function - Play to best of 5
+function game() {
+
+    oneRound(playerMove, computerMove);
+
 }
