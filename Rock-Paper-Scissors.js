@@ -1,5 +1,7 @@
 //Global Scope
 let possOutcomes = ['rock', 'paper', 'scissors'];
+let playerScore = "0";
+let computerScore = "0";
 
 //playerSelection - User will input their move here
 function playerSelection() {
@@ -19,51 +21,49 @@ function computerPlay() {
 //Single Round Game
 function oneRound() {
 
-    //Captured player variables
-    playerMove = playerSelection();
-    computerMove = computerPlay(possOutcomes);
+//Captured player variables
+let playerMove = playerSelection();
+let computerMove = computerPlay();
 
     //Choose 'Rock'
     if (playerMove === 'Rock' && computerMove === 'rock') {
         return "Tie";
-    }
-
-    if (playerMove === 'Rock' && computerMove === 'paper') {
-        return "You lost...";
-    }
-
-    if (playerMove === 'Rock' && computerMove === 'scissors') {
-        return "You win!";
-    }
-
+    } 
+        else if (playerMove === 'Rock' && computerMove === 'scissors') {
+            return "You Win!";
+        }
+        else if (playerMove === 'Rock' && computerMove === 'paper') {
+            return "You lost...";
+        }
     //Choose 'Paper'
     if (playerMove === 'Paper' && computerMove === 'rock') {
         return "You win!";
     }
-
-    if (playerMove === 'Paper' && computerMove === 'paper') {
-        return "Tie";
-    }
-
-    if (playerMove === 'Paper' && computerMove === 'scissors') {
-        return "You lost...";
-    }
-
+        else if (playerMove === 'Paper' && computerMove === 'paper') {
+            return "Tie";
+        }
+        else if (playerMove === 'Paper' && computerMove === 'scissors') {
+            return "You lost...";
+        }
     //Choose 'Scissors'
     if (playerMove === 'Scissors' && computerMove === 'rock') {
         return "You lost...";
     }
-
-    if (playerMove === 'Scissors' && computerMove === 'paper') {
-        return "You win!";
-    }
-
-    if (playerMove === 'Scissors' && computerMove === 'scissors') {
-        return "Tie";
-    }
+        else if (playerMove === 'Scissors' && computerMove === 'paper') {
+            return "You win!";
+        }
+        else if (playerMove === 'Scissors' && computerMove === 'scissors') {
+            return "Tie";
+        }
 }
 
 //Game function - Play to best of 5
 function game() {
-    return oneRound();
+
+    //add "return" to oneRound to retrieve results
+    oneRound(playerMove, computerMove);
+    if (playerMove === 'Scissors') {
+        playerScore++;
+        return playerScore + computerScore;
+    }
 }
