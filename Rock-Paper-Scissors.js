@@ -1,5 +1,5 @@
 //Global Scope
-let possOutcomes = ['rock', 'paper', 'scissors'];
+const possOutcomes = ['rock', 'paper', 'scissors'];
 let playerScore = "0";
 let computerScore = "0";
 
@@ -19,12 +19,15 @@ function computerPlay(outcome) {
 }
 
 //Captured player variables
-let playerMove = playerSelection();
-let computerMove = computerPlay();
+//let playerMove = playerSelection();
+//let computerMove = computerPlay();
 
 //Single Round Game
 function oneRound(playerMove,computerMove) {
 
+    playerMove = playerSelection();
+    computerMove = computerPlay();
+    
     //Choose 'Rock'
     if (playerMove === 'Rock' && computerMove === 'rock') {
         return "Tie";
@@ -57,20 +60,28 @@ function oneRound(playerMove,computerMove) {
         }
 }
 
-let gameOutcome = oneRound();
+//oneRound in variable
+//let gameOutcome = oneRound();
 
 //Game function - Play to best of 5
 function game() {
 
-    //add "return" to oneRound to retrieve results
-    oneRound();
+    gameOutcome = oneRound();
     if (gameOutcome === 'You win!') {
         playerScore++;
         console.log(playerScore, computerScore);
+        return 'You win!';
     }else if (gameOutcome === 'You lost...') {
             computerScore++;
             console.log(playerScore, computerScore);
+            return 'You lost...';
     }else if (gameOutcome === 'Tie') {
             console.log(playerScore, computerScore);
+            return 'Tie';
         }
+    if (playerScore === '5') {
+        return 'You won the game!';
+    }else if (computerScore === '5') {
+        return 'Computer won the game!';
+    }
 }
