@@ -4,8 +4,8 @@ let playerScore = "0";
 let computerScore = "0";
 
 //playerSelection - User will input their move here
-function playerSelection() {
-    let selection = prompt("Rock, Paper or Scissors?");
+function playerSelection(selection) {
+    selection = prompt("Rock, Paper or Scissors?");
     let capFirstLetter = selection[0].toUpperCase();
     let restOfString = selection.slice(1).toLowerCase();
     let capSelection = (capFirstLetter + restOfString);
@@ -13,17 +13,17 @@ function playerSelection() {
 }
 
 //computerPlay - Computer's random moves
-function computerPlay() {
+function computerPlay(outcome) {
     outcome = possOutcomes[Math.floor(Math.random() * possOutcomes.length)];
     return outcome;
 }
 
-//Single Round Game
-function oneRound() {
-
 //Captured player variables
 let playerMove = playerSelection();
 let computerMove = computerPlay();
+
+//Single Round Game
+function oneRound(playerMove,computerMove) {
 
     //Choose 'Rock'
     if (playerMove === 'Rock' && computerMove === 'rock') {
@@ -57,18 +57,20 @@ let computerMove = computerPlay();
         }
 }
 
+let gameOutcome = oneRound();
+
 //Game function - Play to best of 5
 function game() {
 
     //add "return" to oneRound to retrieve results
     oneRound();
-    if (oneRound() === 'You win!') {
+    if (gameOutcome === 'You win!') {
         playerScore++;
         console.log(playerScore, computerScore);
-    }else if (oneRound() === 'You lost...') {
+    }else if (gameOutcome === 'You lost...') {
             computerScore++;
             console.log(playerScore, computerScore);
-    }else if (oneRound() === 'Tie') {
+    }else if (gameOutcome === 'Tie') {
             console.log(playerScore, computerScore);
         }
 }
