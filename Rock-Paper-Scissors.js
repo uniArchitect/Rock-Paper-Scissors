@@ -30,7 +30,7 @@ let computerMove = computerPlay();
         return "Tie";
     } 
         else if (playerMove === 'Rock' && computerMove === 'scissors') {
-            return "You Win!";
+            return "You win!";
         }
         else if (playerMove === 'Rock' && computerMove === 'paper') {
             return "You lost...";
@@ -61,9 +61,14 @@ let computerMove = computerPlay();
 function game() {
 
     //add "return" to oneRound to retrieve results
-    oneRound(playerMove, computerMove);
-    if (playerMove === 'Scissors') {
+    oneRound();
+    if (oneRound() === 'You win!') {
         playerScore++;
-        return playerScore + computerScore;
-    }
+        console.log(playerScore, computerScore);
+    }else if (oneRound() === 'You lost...') {
+            computerScore++;
+            console.log(playerScore, computerScore);
+    }else if (oneRound() === 'Tie') {
+            console.log(playerScore, computerScore);
+        }
 }
