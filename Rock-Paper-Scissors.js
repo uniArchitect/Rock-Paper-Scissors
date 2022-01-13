@@ -1,5 +1,5 @@
 //Global Scope
-const possOutcomes = ['rock', 'paper', 'scissors'];
+const moves = ['rock', 'paper', 'scissors'];
 let playerScore = 0;
 let computerScore = 0;
 
@@ -14,7 +14,7 @@ function playerSelection(selection) {
 
 //computerPlay - Computer's random moves
 function computerPlay(outcome) {
-    outcome = possOutcomes[Math.floor(Math.random() * possOutcomes.length)];
+    outcome = moves[Math.floor(Math.random() * moves.length)];
     return outcome;
 }
 
