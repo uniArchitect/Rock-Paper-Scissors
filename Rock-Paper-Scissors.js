@@ -1,7 +1,7 @@
 //Global Scope
 const possOutcomes = ['rock', 'paper', 'scissors'];
-let playerScore = "0";
-let computerScore = "0";
+let playerScore = 0;
+let computerScore = 0;
 
 //playerSelection - User will input their move here
 function playerSelection(selection) {
@@ -63,6 +63,14 @@ function oneRound(playerMove,computerMove) {
 //oneRound in variable
 //let gameOutcome = oneRound();
 
+function checkWinner() {
+    if (playerScore === 5) {
+        return 'You won the game!';
+    }else if(computerScore === 5) {
+        return 'Computer won the game!';
+    }
+}
+
 //Game function - Play to best of 5
 function game() {
 
@@ -70,18 +78,16 @@ function game() {
     if (gameOutcome === 'You win!') {
         playerScore++;
         console.log(playerScore, computerScore);
-        return 'You win!';
+        //return 'You win!';
+        return checkWinner();
     }else if (gameOutcome === 'You lost...') {
             computerScore++;
             console.log(playerScore, computerScore);
-            return 'You lost...';
+            //return 'You lost...';
+            return checkWinner();
     }else if (gameOutcome === 'Tie') {
             console.log(playerScore, computerScore);
-            return 'Tie';
+            //return 'Tie';
+            return checkWinner();
         }
-    if (playerScore === '5') {
-        return 'You won the game!';
-    }else if (computerScore === '5') {
-        return 'Computer won the game!';
-    }
 }
