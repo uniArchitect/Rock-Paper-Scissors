@@ -91,3 +91,12 @@ function game() {
             return checkWinner();
         }
 }
+
+const btn = document.querySelector("#btn");
+btn.addEventListener('click', function playerSelection(selection) {
+        selection = prompt("Rock, Paper or Scissors?");
+        let capFirstLetter = selection[0].toUpperCase();
+        let restOfString = selection.slice(1).toLowerCase();
+        let capSelection = (capFirstLetter + restOfString);
+        return capSelection;
+});
