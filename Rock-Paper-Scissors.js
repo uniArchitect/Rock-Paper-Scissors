@@ -26,6 +26,21 @@ function selectScissors() {
     console.log('Scissors'); 
 }
 
+function playerSelection() {
+    if (selectRock() == 'Rock') {
+        console.log('Rock');
+        return true;
+    }
+        else if (selectPaper() == 'Paper') {
+            console.log('Paper');
+            return true;
+        }
+        else if (selectScissors() == 'Scissors') {
+            console.log('Scissors');
+            return true;
+        }
+}
+
 //computerPlay - Computer's random moves
 let computerPlay = outcome => {
     outcome = moves[Math.floor(Math.random() * moves.length)];
