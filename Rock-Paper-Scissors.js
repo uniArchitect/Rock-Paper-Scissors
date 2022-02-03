@@ -2,40 +2,33 @@
 const moves = ['rock', 'paper', 'scissors'];
 let playerScore = 0;
 let computerScore = 0;
+const selectRock = document.getElementById('rock');
+const selectPaper = document.getElementById('paper'); 
+const selectScissors = document.getElementById('scissors');
 
-//playerSelection - User will input their move here
-//let playerSelection = selection => {
-    //selection = prompt("Rock, Paper or Scissors?");
-    //let capFirstLetter = selection[0].toUpperCase();
-    //let restOfString = selection.slice(1).toLowerCase();
-    //let capSelection = (capFirstLetter + restOfString);
-    //console.log(capSelection);
-    //return true; 
-//}
-
-//Additional UI
-function selectRock() {
+//playerSelection - User will input their move here - Additional UI
+function chooseRock() {
     console.log('Rock'); 
 }
 
-function selectPaper() {
+function choosePaper() {
     console.log('Paper'); 
 }
 
-function selectScissors() {
+function chooseScissors() {
     console.log('Scissors'); 
 }
 
 function playerSelection() {
-    if (selectRock() == 'Rock') {
+    if (selectRock == 'Rock') {
         console.log('Rock');
         return true;
     }
-        else if (selectPaper() == 'Paper') {
+        else if (selectPaper == 'Paper') {
             console.log('Paper');
             return true;
         }
-        else if (selectScissors() == 'Scissors') {
+        else if (selectScissors == 'Scissors') {
             console.log('Scissors');
             return true;
         }
@@ -123,14 +116,9 @@ function game() {
 }
 
 // Define button options 
-const startGame = document.querySelector("#startGame");
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
-
-startGame.addEventListener('click', () => {
-    console.log('Pick your move...');
-});
 
 rock.addEventListener('click', () => {
     oneRound(playerMove, computerMove);
@@ -139,6 +127,7 @@ rock.addEventListener('click', () => {
 
 paper.addEventListener('click', () => {
     console.log('Paper');
+    return true;
 });
 
 scissors.addEventListener('click', () => {
