@@ -2,15 +2,29 @@
 const moves = ['rock', 'paper', 'scissors'];
 let playerScore = 0;
 let computerScore = 0;
+const playerSelection = document.querySelectorAll('[data-selection]')
 
 //playerSelection - User will input their move here - Additional UI
-function playerSelection(selection) {
-    selection = prompt("Rock, Paper or Scissors?");
-    let capFirstLetter = selection[0].toUpperCase();
-    let restOfString = selection.slice(1).toLowerCase();
-    let capSelection = (capFirstLetter + restOfString);
-    return capSelection; 
+//Create a playerSelection function that will return the value when the button is clicked on the HTML
+
+playerSelection.forEach(playerSelection => {
+    playerSelection.addEventListener('click', e => {
+        const playerMove = playerSelection.dataset.selection
+        makeSelection(playerMove)
+    })
+})
+
+function makeSelection(selection) {
+    console.log(selection)
 }
+
+//function playerSelection(selection) {
+    //selection = prompt("Rock, Paper or Scissors?");
+    //let capFirstLetter = selection[0].toUpperCase();
+    //let restOfString = selection.slice(1).toLowerCase();
+    //let capSelection = (capFirstLetter + restOfString);
+    //return capSelection; 
+//}
 
 //computerPlay - Computer's random moves
 let computerPlay = outcome => {
@@ -19,8 +33,8 @@ let computerPlay = outcome => {
 }
 
 //Captured player variables
-let playerMove = playerSelection();
-let computerMove = computerPlay();
+//let playerMove = playerSelection();
+//let computerMove = computerPlay();
 
 //Single Round Game
 let oneRound = (playerMove,computerMove) => {
@@ -96,18 +110,3 @@ function game() {
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
-
-rock.addEventListener('click', () => {
-    console.log(oneRound());
-    return true;
-});
-
-paper.addEventListener('click', () => {
-    console.log('Paper');
-    return true;
-});
-
-scissors.addEventListener('click', () => {
-    console.log('Scissors');
-    return true;
-});
