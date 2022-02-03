@@ -4,23 +4,25 @@ let playerScore = 0;
 let computerScore = 0;
 
 //playerSelection - User will input their move here
-function playerSelection(selection) {
+let playerSelection = selection => {
     selection = prompt("Rock, Paper or Scissors?");
     let capFirstLetter = selection[0].toUpperCase();
     let restOfString = selection.slice(1).toLowerCase();
     let capSelection = (capFirstLetter + restOfString);
-    return capSelection; 
+    console.log(capSelection);
+    return true; 
 }
 
 //computerPlay - Computer's random moves
-function computerPlay(outcome) {
+let computerPlay = outcome => {
     outcome = moves[Math.floor(Math.random() * moves.length)];
-    return outcome;
+    console.log(outcome);
+    return true;
 }
 
 //Captured player variables
-//let playerMove = playerSelection();
-//let computerMove = computerPlay();
+let playerMove = playerSelection();
+let computerMove = computerPlay();
 
 //Single Round Game
 function oneRound(playerMove,computerMove) {
@@ -99,11 +101,11 @@ const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
 startGame.addEventListener('click', () => {
-    console.log('Choose an option to survive!');
+    console.log('Pick your move...');
 });
 
 rock.addEventListener('click', () => {
-    console.log('Rock');
+    oneRound(playerMove, computerMove);
     return true;
 });
 
