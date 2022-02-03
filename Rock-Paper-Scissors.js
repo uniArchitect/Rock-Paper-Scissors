@@ -2,43 +2,20 @@
 const moves = ['rock', 'paper', 'scissors'];
 let playerScore = 0;
 let computerScore = 0;
-const selectRock = document.getElementById('rock');
-const selectPaper = document.getElementById('paper'); 
-const selectScissors = document.getElementById('scissors');
 
 //playerSelection - User will input their move here - Additional UI
-function chooseRock() {
-    console.log('Rock'); 
-}
-
-function choosePaper() {
-    console.log('Paper'); 
-}
-
-function chooseScissors() {
-    console.log('Scissors'); 
-}
-
-function playerSelection() {
-    if (selectRock == 'Rock') {
-        console.log('Rock');
-        return true;
-    }
-        else if (selectPaper == 'Paper') {
-            console.log('Paper');
-            return true;
-        }
-        else if (selectScissors == 'Scissors') {
-            console.log('Scissors');
-            return true;
-        }
+function playerSelection(selection) {
+    selection = prompt("Rock, Paper or Scissors?");
+    let capFirstLetter = selection[0].toUpperCase();
+    let restOfString = selection.slice(1).toLowerCase();
+    let capSelection = (capFirstLetter + restOfString);
+    return capSelection; 
 }
 
 //computerPlay - Computer's random moves
 let computerPlay = outcome => {
     outcome = moves[Math.floor(Math.random() * moves.length)];
-    console.log(outcome);
-    return true;
+    return outcome;
 }
 
 //Captured player variables
@@ -121,7 +98,7 @@ const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
 rock.addEventListener('click', () => {
-    oneRound(playerMove, computerMove);
+    console.log(oneRound());
     return true;
 });
 
@@ -132,4 +109,5 @@ paper.addEventListener('click', () => {
 
 scissors.addEventListener('click', () => {
     console.log('Scissors');
+    return true;
 });
