@@ -4,13 +4,26 @@ let playerScore = 0;
 let computerScore = 0;
 
 //playerSelection - User will input their move here
-let playerSelection = selection => {
-    selection = prompt("Rock, Paper or Scissors?");
-    let capFirstLetter = selection[0].toUpperCase();
-    let restOfString = selection.slice(1).toLowerCase();
-    let capSelection = (capFirstLetter + restOfString);
-    console.log(capSelection);
-    return true; 
+//let playerSelection = selection => {
+    //selection = prompt("Rock, Paper or Scissors?");
+    //let capFirstLetter = selection[0].toUpperCase();
+    //let restOfString = selection.slice(1).toLowerCase();
+    //let capSelection = (capFirstLetter + restOfString);
+    //console.log(capSelection);
+    //return true; 
+//}
+
+//Additional UI
+function selectRock() {
+    console.log('Rock'); 
+}
+
+function selectPaper() {
+    console.log('Paper'); 
+}
+
+function selectScissors() {
+    console.log('Scissors'); 
 }
 
 //computerPlay - Computer's random moves
@@ -25,7 +38,7 @@ let playerMove = playerSelection();
 let computerMove = computerPlay();
 
 //Single Round Game
-function oneRound(playerMove,computerMove) {
+let oneRound = (playerMove,computerMove) => {
 
     playerMove = playerSelection();
     computerMove = computerPlay();
