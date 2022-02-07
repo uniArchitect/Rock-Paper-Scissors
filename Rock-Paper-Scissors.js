@@ -6,6 +6,7 @@ const buttonSelection = document.querySelectorAll('[data-selection]')
 const userScore_div = document.getElementById('player-score')
 const computerScore_div = document.getElementById('computer-score')
 const gameResult_div = document.getElementById('game-result')
+const finalResult_div = document.getElementById('final-result')
 
 //Define button options 
 const rock = document.querySelector("#rock");
@@ -31,17 +32,21 @@ let computerPlay = outcome => {
 //checks for the winner after each game
 function checkWinner() {
     if (playerScore === 5) {
-        console.log('You won the game!');
+        finalResult_div.innerHTML = "You won the game!"
+        //console.log('You won the game!');
     }else if(computerScore === 5) {
-        console.log('Computer won the game!');
+        finalResult_div.innerHTML = "Computer won the game!"
+        //console.log('Computer won the game!');
     }
 }
 
 //alters the score based on game results
-function win() {
+function win(playerSelection, computerMove) {
     playerScore++;
     //connects playerScore to div element in HTML
     userScore_div.innerHTML = playerScore;
+    //renders statement for game result
+    gameResult_div.innerHTML = "You win!";
     console.log(playerScore, computerScore);
     return checkWinner();
 }
@@ -50,12 +55,14 @@ function lose() {
     computerScore++;
     //connects computerScore to div element in HTML
     computerScore_div.innerHTML = computerScore;
+    gameResult_div.innerHTML = "You lost...";
     console.log(playerScore, computerScore);
     return checkWinner();
 }
 
 function tie() {
     console.log(playerScore, computerScore);
+    gameResult_div.innerHTML = "You tie...";
     return checkWinner();;
 }
 
@@ -66,41 +73,32 @@ function game(playerSelection) {
 
     //Choose 'Rock'
     if (playerSelection === 'Rock' && computerMove === 'rock') {
-        console.log("Tie");
         tie();
     } 
         else if (playerSelection === 'Rock' && computerMove === 'scissors') {
-            console.log("You win!");
             win();
         }
         else if (playerSelection === 'Rock' && computerMove === 'paper') {
-            console.log("You lost...");
             lose();
         }
     //Choose 'Paper'
     if (playerSelection === 'Paper' && computerMove === 'rock') {
-        console.log("You win!");
         win();
     }
         else if (playerSelection === 'Paper' && computerMove === 'paper') {
-            console.log("Tie");
             tie();
         }
         else if (playerSelection === 'Paper' && computerMove === 'scissors') {
-            console.log("You lost...");
             lose();
         }
     //Choose 'Scissors'
     if (playerSelection === 'Scissors' && computerMove === 'rock') {
-        console.log("You lost...");
         lose();
     }
         else if (playerSelection === 'Scissors' && computerMove === 'paper') {
-            console.log("You win!");
             win();
         }
         else if (playerSelection === 'Scissors' && computerMove === 'scissors') {
-            console.log("Tie");
             tie();
         }
 }
