@@ -33,15 +33,13 @@ let computerPlay = outcome => {
 function checkWinner() {
     if (playerScore === 5) {
         finalResult_div.innerHTML = "You won the game!"
-        //console.log('You won the game!');
     }else if(computerScore === 5) {
         finalResult_div.innerHTML = "Computer won the game!"
-        //console.log('Computer won the game!');
     }
 }
 
 //alters the score based on game results
-function win(playerSelection, computerMove) {
+function win() {
     playerScore++;
     //connects playerScore to div element in HTML
     userScore_div.innerHTML = playerScore;
