@@ -2,29 +2,22 @@
 const moves = ['rock', 'paper', 'scissors'];
 let playerScore = 0;
 let computerScore = 0;
-const playerSelection = document.querySelectorAll('[data-selection]')
+const buttonSelection = document.querySelectorAll('[data-selection]')
+
+// Define button options 
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
 
 //playerSelection - User will input their move here - Additional UI
 //Create a playerSelection function that will return the value when the button is clicked on the HTML
-
-playerSelection.forEach(playerSelection => {
-    playerSelection.addEventListener('click', e => {
-        const playerMove = playerSelection.dataset.selection
-        makeSelection(playerMove)
+buttonSelection.forEach(buttonSelection => {
+    buttonSelection.addEventListener('click', () => {
+        const playerMove = buttonSelection.dataset.selection
+        //function to create value of clicked button = game function as well
+        gameRPS(playerMove)
     })
 })
-
-function makeSelection(selection) {
-    console.log(selection)
-}
-
-//function playerSelection(selection) {
-    //selection = prompt("Rock, Paper or Scissors?");
-    //let capFirstLetter = selection[0].toUpperCase();
-    //let restOfString = selection.slice(1).toLowerCase();
-    //let capSelection = (capFirstLetter + restOfString);
-    //return capSelection; 
-//}
 
 //computerPlay - Computer's random moves
 let computerPlay = outcome => {
@@ -32,63 +25,55 @@ let computerPlay = outcome => {
     return outcome;
 }
 
-//Captured player variables
-//let playerMove = playerSelection();
-//let computerMove = computerPlay();
-
 //Single Round Game
-let oneRound = (playerMove,computerMove) => {
-
-    playerMove = playerSelection();
-    computerMove = computerPlay();
+function gameRPS(playerSelection) {
     
+    computerMove = computerPlay();
+
     //Choose 'Rock'
-    if (playerMove === 'Rock' && computerMove === 'rock') {
-        return "Tie";
+    if (playerSelection === 'Rock' && computerMove === 'rock') {
+        console.log("Tie");
     } 
-        else if (playerMove === 'Rock' && computerMove === 'scissors') {
-            return "You win!";
+        else if (playerSelection === 'Rock' && computerMove === 'scissors') {
+            console.log("You win!");
         }
-        else if (playerMove === 'Rock' && computerMove === 'paper') {
-            return "You lost...";
+        else if (playerSelection === 'Rock' && computerMove === 'paper') {
+            console.log("You lost...");
         }
     //Choose 'Paper'
-    if (playerMove === 'Paper' && computerMove === 'rock') {
-        return "You win!";
+    if (playerSelection === 'Paper' && computerMove === 'rock') {
+        console.log("You win!");
     }
-        else if (playerMove === 'Paper' && computerMove === 'paper') {
-            return "Tie";
+        else if (playerSelection === 'Paper' && computerMove === 'paper') {
+            console.log("Tie");
         }
-        else if (playerMove === 'Paper' && computerMove === 'scissors') {
-            return "You lost...";
+        else if (playerSelection === 'Paper' && computerMove === 'scissors') {
+            console.log("You lost...");
         }
     //Choose 'Scissors'
-    if (playerMove === 'Scissors' && computerMove === 'rock') {
-        return "You lost...";
+    if (playerSelection === 'Scissors' && computerMove === 'rock') {
+        console.log("You lost...");
     }
-        else if (playerMove === 'Scissors' && computerMove === 'paper') {
-            return "You win!";
+        else if (playerSelection === 'Scissors' && computerMove === 'paper') {
+            console.log("You win!");
         }
-        else if (playerMove === 'Scissors' && computerMove === 'scissors') {
-            return "Tie";
+        else if (playerSelection === 'Scissors' && computerMove === 'scissors') {
+            console.log("Tie");
         }
 }
 
-//oneRound in variable
-//let gameOutcome = oneRound();
-
 function checkWinner() {
     if (playerScore === 5) {
-        return 'You won the game!';
+        console.log('You won the game!');
     }else if(computerScore === 5) {
-        return 'Computer won the game!';
+        console.log('Computer won the game!');
     }
 }
 
 //Game function - Play to best of 5
 function game() {
 
-    gameOutcome = oneRound();
+    gameOutcome = gameRPS(playerSelection);
     if (gameOutcome === 'You win!') {
         playerScore++;
         console.log(playerScore, computerScore);
@@ -105,8 +90,3 @@ function game() {
             return checkWinner();
         }
 }
-
-// Define button options 
-const rock = document.querySelector("#rock");
-const paper = document.querySelector("#paper");
-const scissors = document.querySelector("#scissors");
