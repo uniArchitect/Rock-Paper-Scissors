@@ -15,7 +15,7 @@ buttonSelection.forEach(buttonSelection => {
     buttonSelection.addEventListener('click', () => {
         const playerMove = buttonSelection.dataset.selection
         //function to create value of clicked button = game function as well
-        gameRPS(playerMove)
+        game(playerMove)
     })
 })
 
@@ -23,43 +23,6 @@ buttonSelection.forEach(buttonSelection => {
 let computerPlay = outcome => {
     outcome = moves[Math.floor(Math.random() * moves.length)];
     return outcome;
-}
-
-//Single Round Game
-function gameRPS(playerSelection) {
-    
-    computerMove = computerPlay();
-
-    //Choose 'Rock'
-    if (playerSelection === 'Rock' && computerMove === 'rock') {
-        console.log("Tie");
-    } 
-        else if (playerSelection === 'Rock' && computerMove === 'scissors') {
-            console.log("You win!");
-        }
-        else if (playerSelection === 'Rock' && computerMove === 'paper') {
-            console.log("You lost...");
-        }
-    //Choose 'Paper'
-    if (playerSelection === 'Paper' && computerMove === 'rock') {
-        console.log("You win!");
-    }
-        else if (playerSelection === 'Paper' && computerMove === 'paper') {
-            console.log("Tie");
-        }
-        else if (playerSelection === 'Paper' && computerMove === 'scissors') {
-            console.log("You lost...");
-        }
-    //Choose 'Scissors'
-    if (playerSelection === 'Scissors' && computerMove === 'rock') {
-        console.log("You lost...");
-    }
-        else if (playerSelection === 'Scissors' && computerMove === 'paper') {
-            console.log("You win!");
-        }
-        else if (playerSelection === 'Scissors' && computerMove === 'scissors') {
-            console.log("Tie");
-        }
 }
 
 function checkWinner() {
@@ -70,23 +33,65 @@ function checkWinner() {
     }
 }
 
-//Game function - Play to best of 5
-function game() {
+function win() {
+    playerScore++;
+    console.log(playerScore, computerScore);
+    return checkWinner();
+}
 
-    gameOutcome = gameRPS(playerSelection);
-    if (gameOutcome === 'You win!') {
-        playerScore++;
-        console.log(playerScore, computerScore);
-        //return 'You win!';
-        return checkWinner();
-    }else if (gameOutcome === 'You lost...') {
-            computerScore++;
-            console.log(playerScore, computerScore);
-            //return 'You lost...';
-            return checkWinner();
-    }else if (gameOutcome === 'Tie') {
-            console.log(playerScore, computerScore);
-            //return 'Tie';
-            return checkWinner();
+function lose() {
+    computerScore++;
+    console.log(playerScore, computerScore);
+    return checkWinner();
+}
+
+function tie() {
+    console.log(playerScore, computerScore);
+    return checkWinner();;
+}
+
+//Game to 5
+function game(playerSelection) {
+    
+    computerMove = computerPlay();
+
+    //Choose 'Rock'
+    if (playerSelection === 'Rock' && computerMove === 'rock') {
+        console.log("Tie");
+        tie();
+    } 
+        else if (playerSelection === 'Rock' && computerMove === 'scissors') {
+            console.log("You win!");
+            win();
+        }
+        else if (playerSelection === 'Rock' && computerMove === 'paper') {
+            console.log("You lost...");
+            lose();
+        }
+    //Choose 'Paper'
+    if (playerSelection === 'Paper' && computerMove === 'rock') {
+        console.log("You win!");
+        win();
+    }
+        else if (playerSelection === 'Paper' && computerMove === 'paper') {
+            console.log("Tie");
+            tie();
+        }
+        else if (playerSelection === 'Paper' && computerMove === 'scissors') {
+            console.log("You lost...");
+            lose();
+        }
+    //Choose 'Scissors'
+    if (playerSelection === 'Scissors' && computerMove === 'rock') {
+        console.log("You lost...");
+        lose();
+    }
+        else if (playerSelection === 'Scissors' && computerMove === 'paper') {
+            console.log("You win!");
+            win();
+        }
+        else if (playerSelection === 'Scissors' && computerMove === 'scissors') {
+            console.log("Tie");
+            tie();
         }
 }
