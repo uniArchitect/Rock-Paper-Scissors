@@ -1,3 +1,15 @@
 body {
+    display: flex;
+    justify-content: center;
     background-color: #A8DBA8;
+}
+
+.selection{
+    background: #0B486B;
+    padding-left: 36px;
+    padding-right: 36px;
+    color:#e5e7eb;
+    font-size: 18px;
+    border-style: none;
+    border-radius: 10px;
 }
