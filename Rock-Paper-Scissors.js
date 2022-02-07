@@ -3,8 +3,10 @@ const moves = ['rock', 'paper', 'scissors'];
 let playerScore = 0;
 let computerScore = 0;
 const buttonSelection = document.querySelectorAll('[data-selection]')
+const userScore_div = document.getElementById('player-score')
+const computerScore_div = document.getElementById('computer-score')
 
-// Define button options 
+//Define button options 
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
@@ -25,6 +27,7 @@ let computerPlay = outcome => {
     return outcome;
 }
 
+//checks for the winner after each game
 function checkWinner() {
     if (playerScore === 5) {
         console.log('You won the game!');
@@ -33,14 +36,19 @@ function checkWinner() {
     }
 }
 
+//alters the score based on game results
 function win() {
     playerScore++;
+    //connects playerScore to div element in HTML
+    userScore_div.innerHTML = playerScore;
     console.log(playerScore, computerScore);
     return checkWinner();
 }
 
 function lose() {
     computerScore++;
+    //connects computerScore to div element in HTML
+    computerScore_div.innerHTML = computerScore;
     console.log(playerScore, computerScore);
     return checkWinner();
 }
