@@ -1,10 +1,15 @@
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     background-color: #A8DBA8;
 }
 
-.selection{
+.score {
+    display: flex;
+    width: 50px;
+}
+
+.button{
     background: #0B486B;
     padding-left: 36px;
     padding-right: 36px;
@@ -12,4 +17,10 @@ body {
     font-size: 18px;
     border-style: none;
     border-radius: 10px;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

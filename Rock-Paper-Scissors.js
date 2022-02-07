@@ -5,7 +5,7 @@ let computerScore = 0;
 const buttonSelection = document.querySelectorAll('[data-selection]')
 const userScore_div = document.getElementById('player-score')
 const computerScore_div = document.getElementById('computer-score')
-const gameResult_div = document.getElementById('game-result')
+const gameResult_div = document.getElementById('round-result')
 const finalResult_div = document.getElementById('final-result')
 
 //Define button options 
