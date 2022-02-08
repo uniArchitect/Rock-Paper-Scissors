@@ -26,7 +26,10 @@ buttonSelection.forEach(buttonSelection => {
 //computerPlay - Computer's random moves
 let computerPlay = outcome => {
     outcome = moves[Math.floor(Math.random() * moves.length)];
-    return outcome;
+    let capFirstLetter = outcome[0].toUpperCase();
+    let restOfString = outcome.slice(1).toLowerCase();
+    let capSelection = (capFirstLetter + restOfString);
+    return capSelection;
 }
 
 //checks for the winner after each game
@@ -39,28 +42,28 @@ function checkWinner() {
 }
 
 //alters the score based on game results
-function win() {
+function win(playerSelection, computerMove) {
     playerScore++;
     //connects playerScore to div element in HTML
     userScore_div.innerHTML = playerScore;
     //renders statement for game result
-    gameResult_div.innerHTML = "You win!";
+    gameResult_div.innerHTML = "You win! " + playerSelection + " beats " + computerMove;
     console.log(playerScore, computerScore);
     return checkWinner();
 }
 
-function lose() {
+function lose(playerSelection, computerMove) {
     computerScore++;
     //connects computerScore to div element in HTML
     computerScore_div.innerHTML = computerScore;
-    gameResult_div.innerHTML = "You lost...";
+    gameResult_div.innerHTML = "You lost... " + computerMove + " beats " + playerSelection;
     console.log(playerScore, computerScore);
     return checkWinner();
 }
 
 function tie() {
     console.log(playerScore, computerScore);
-    gameResult_div.innerHTML = "You tie...";
+    gameResult_div.innerHTML = "You tied";
     return checkWinner();;
 }
 
@@ -70,33 +73,34 @@ function game(playerSelection) {
     computerMove = computerPlay();
 
     //Choose 'Rock'
-    if (playerSelection === 'Rock' && computerMove === 'rock') {
-        tie();
+    if (playerSelection === 'Rock' && computerMove === 'Rock') {
+        tie(playerSelection, computerMove);
     } 
-        else if (playerSelection === 'Rock' && computerMove === 'scissors') {
-            win();
+        else if (playerSelection === 'Rock' && computerMove === 'Scissors') {
+            //add inputs to executed 'win' function that will translate into the defined 'win' function
+            win(playerSelection, computerMove);
         }
-        else if (playerSelection === 'Rock' && computerMove === 'paper') {
-            lose();
+        else if (playerSelection === 'Rock' && computerMove === 'Paper') {
+            lose(playerSelection, computerMove);
         }
     //Choose 'Paper'
-    if (playerSelection === 'Paper' && computerMove === 'rock') {
-        win();
+    if (playerSelection === 'Paper' && computerMove === 'Rock') {
+        win(playerSelection, computerMove);
     }
-        else if (playerSelection === 'Paper' && computerMove === 'paper') {
-            tie();
+        else if (playerSelection === 'Paper' && computerMove === 'Paper') {
+            tie(playerSelection, computerMove);
         }
-        else if (playerSelection === 'Paper' && computerMove === 'scissors') {
-            lose();
+        else if (playerSelection === 'Paper' && computerMove === 'Scissors') {
+            lose(playerSelection, computerMove);
         }
     //Choose 'Scissors'
-    if (playerSelection === 'Scissors' && computerMove === 'rock') {
-        lose();
+    if (playerSelection === 'Scissors' && computerMove === 'Rock') {
+        lose(playerSelection, computerMove);
     }
-        else if (playerSelection === 'Scissors' && computerMove === 'paper') {
-            win();
+        else if (playerSelection === 'Scissors' && computerMove === 'Paper') {
+            win(playerSelection, computerMove);
         }
-        else if (playerSelection === 'Scissors' && computerMove === 'scissors') {
-            tie();
+        else if (playerSelection === 'Scissors' && computerMove === 'Scissors') {
+            tie(playerSelection, computerMove);
         }
 }
