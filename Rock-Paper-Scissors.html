@@ -9,12 +9,34 @@
     <title>TOP Rock Paper Scissors</title>
 </head>
 <body>
-    <div class="score" id="player-score">0</div>
-    <div class="score" id="computer-score">0</div>
-    <button class="button" id="rock" data-selection="Rock">Rock</button>
-    <button class="button" id="paper" data-selection="Paper">Paper</button>
-    <button class="button" id="scissors" data-selection="Scissors">Scissors</button>
-    <div class="result" id="round-result">Pick your move</div>
-    <div class="result" id="final-result">Can you win?</div>
+    <!--Scoreboard-->
+    <div class="score-board">    
+        <div class="score" id="player-score">
+        0
+        </div>
+        <div class="score" id="computer-score">
+        0
+        </div>
+    </div>
+    <!--Text Header-->
+    <div class="game-prompt" id="round-result">
+    Pick your move
+    </div>    
+    <!--RPS Buttons-->
+    <div class="buttons">
+        <button class="btn-left" id="rock" data-selection="Rock">
+        Rock
+        </button>
+        <button class="btn-middle" id="paper" data-selection="Paper">
+        Paper
+        </button>
+        <button class="btn-right" id="scissors" data-selection="Scissors">
+        Scissors
+        </button>
+    </div>
+    <!--Result Text-->
+    <div class="result" id="final-result">
+    Can you win?
+    </div>
 </body>
 </html>
