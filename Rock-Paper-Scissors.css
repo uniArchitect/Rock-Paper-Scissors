@@ -11,10 +11,12 @@ body {
     flex-direction: row;
     justify-content: center;
     align-content: center;
-    gap: 100px;
+    gap: 45px;
     padding-top: 48px;
-    padding-right: 512px;
-    padding-left: 512px;
+}
+
+.players {
+    font-size: 36px;
     color: white;
 }
 
@@ -22,10 +24,8 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
-    gap: 100px;
-    padding-top: 24px;
-    padding-right: 512px;
-    padding-left: 512px;
+    gap: 180px;
+    padding-top: 36px;
     padding-bottom: 24px;
 }
 
@@ -42,8 +42,6 @@ body {
     font-size: 24px;
     padding-top: 24px;
     padding-bottom: 48px;
-    padding-right: 512px;
-    padding-left: 512px;
     color: white;
 }
 
@@ -58,12 +56,11 @@ body {
     justify-content: center;
     align-items: center;
     background: white;
-    padding-left: 36px;
-    padding-right: 36px;
     color: black;
-    font-size: 18px;
+    font-size: 24px;
     border-style: none;
     border-radius: 10px;
+    width: 150px;
     height: 100px;
 }
 
@@ -74,7 +71,5 @@ body {
     font-size: 24px;
     padding-top: 48px;
     padding-bottom: 48px;
-    padding-right: 512px;
-    padding-left: 512px;
     color: white;
 }
